@@ -5,7 +5,7 @@ MAINTAINER Viktor Farcic "viktor@farcic.com"
 # Packages
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
 RUN apt-get update && \
-    apt-get install -y --force-yes --no-install-recommends openjdk-7-jdk mongodb && \
+    apt-get install -y --force-yes --no-install-recommends openjdk-7-jdk mongodb wget sbt && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

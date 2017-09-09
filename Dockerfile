@@ -4,8 +4,7 @@ MAINTAINER Viktor Farcic "viktor@farcic.com"
 # Packages
 RUN add-apt-repository ppa:openjdk-r/ppa && \
     apt-get update && \
-    #apt-get install -y --force-yes --no-install-recommends openjdk-7-jdk mongodb && \
-    apt-get install openjdk-8-jdk && \
+    apt-get install -y --force-yes --no-install-recommends openjdk-8-jdk mongodb && \
     update-alternatives --config java && \
     update-alternatives --config javac && \
     apt-get clean && \

@@ -2,8 +2,12 @@ FROM debian:jessie
 MAINTAINER Viktor Farcic "viktor@farcic.com"
 
 # Packages
-RUN apt-get update && \
-    apt-get install -y --force-yes --no-install-recommends openjdk-7-jdk mongodb && \
+RUN add-apt-repository ppa:openjdk-r/ppa && \
+    apt-get update && \
+    #apt-get install -y --force-yes --no-install-recommends openjdk-7-jdk mongodb && \
+    apt-get install openjdk-8-jdk && \
+    update-alternatives --config java && \
+    update-alternatives --config javac && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

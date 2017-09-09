@@ -4,13 +4,11 @@ MAINTAINER Viktor Farcic "viktor@farcic.com"
 
 # Packages
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
-RUN apt update
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:openjdk-r/ppa
 RUN apt-get update && \
-    apt-get -y --force-yes install --no-install-recommends openjdk-7-jdk openjdk-8-jdk mongodb wget sbt && \
+    apt-get install -y --force-yes --no-install-recommends openjdk-7-jdk mongodb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
 RUN wget -q http://downloads.typesafe.com/scala/2.11.5/scala-2.11.5.deb && \
     dpkg -i scala-2.11.5.deb && \
     rm scala-2.11.5.deb

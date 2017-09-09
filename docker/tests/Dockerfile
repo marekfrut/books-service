@@ -4,7 +4,7 @@ MAINTAINER Viktor Farcic "viktor@farcic.com"
 
 # Packages
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
-RUN add-apt-repository -y ppa:openjdk-r/ppa && \
+RUN apt-get install software-properties-common && \
     apt-get update && \
     apt-get -y --force-yes install --no-install-recommends openjdk-8-jdk mongodb wget sbt && \
     apt-get clean && \

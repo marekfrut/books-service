@@ -4,8 +4,11 @@ MAINTAINER Viktor Farcic "viktor@farcic.com"
 
 # Packages
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
-RUN apt-get update && \
+RUN add-apt-repository -y ppa:openjdk-r/ppa && \
+    apt-get update && \
     apt-get -y --force-yes install --no-install-recommends openjdk-8-jdk mongodb wget sbt && \
+    update-alternatives --config java
+    update-alternatives --config javac
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN wget -q http://downloads.typesafe.com/scala/2.11.5/scala-2.11.5.deb && \
